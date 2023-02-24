@@ -36,59 +36,6 @@ func main() {
 			fmt.Println("Block eRROR", err)
 		}
 	}
-	// Connect to the Ethereum network
-	// client, err := ethclient.Dial("ws://142.132.192.47:1337")
-	// if err != nil {
-	// 	fmt.Println("Failed to connect to the Ethereum network:", err)
-	// 	return
-	// }
-	// fmt.Println("Connected")
-	// txReceipt, _ := client.TransactionReceipt(context.Background(), common.HexToHash("0xf340a5bb9aff671a48ace4ed918a479e9f53f53033a640b7d7c91c985fe36fa7"))
-
-	// for i := 0; i < len(txReceipt.Logs); i++ {
-	// 	fmt.Println("=========\nIndex: ", i)
-	// 	interact := txReceipt.Logs[i].Address
-	// 	Datas := txReceipt.Logs[i].Data
-	// 	Topics := txReceipt.Logs[i].Topics
-	// 	fmt.Println("Interact with", interact)
-	// 	fmt.Println("Datas: ", hex.EncodeToString(Datas))
-	// 	fmt.Println("Topics: ", Topics)
-	// 	if Topics[0] == common.HexToHash("0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822") {
-	// 		decs := utils.SwapDecode(hex.EncodeToString(Datas), Datas)
-	// 		amountToken := decs.Fee2
-	// 		wethUsed := decs.Fee1
-	// 		fmt.Println(wethUsed)
-	// 		fmt.Println(amountToken)
-	// 	}
-	// }
-
-	// Define the contract address and the event name
-	// contractAddress := common.HexToAddress("0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c")
-
-	// // Create the filter query
-	// query := ethereum.FilterQuery{
-	// 	Addresses: []common.Address{contractAddress},
-	// 	Topics:    [][]common.Hash{{common.HexToHash("0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c")}},
-	// }
-
-	// query.FromBlock = big.NewInt(25810916)
-
-	// Retrieve the event logs
-	// logs, err := client.FilterLogs(context.Background(), query)
-	// if err != nil {
-	// 	fmt.Println("Failed to retrieve the event logs:", err)
-	// 	return
-	// }
-
-	// // Print the logs
-	// fmt.Println("Log:", hex.EncodeToString(logs[2].Data))
-	// fmt.Println(logs[2].TxHash)
-	// fmt.Println(logs[2].Index)
-
-	// chainID, err := client.NetworkID(context.Background())
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
 	chainID, err := client.Client().NetworkID(context.Background())
 	if err != nil {
 		log.Fatal(err)
@@ -178,8 +125,6 @@ func main() {
 						}
 					}
 
-					// fmt.Println("Datas: ", hex.EncodeToString(Datas))
-					// fmt.Println("Topics: ", Topics)
 					if Topics == nil {
 						fmt.Println()
 					} else if Topics[0] == common.HexToHash("0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822") {
@@ -234,14 +179,4 @@ func main() {
 
 		}
 	}
-
-	// fmt.Println(block)
-	// for _, tx := range block.Transactions() {
-	// 	fmt.Println(tx.Hash().Hex())
-	// 	// fmt.Println(tx.Value().String())
-	// 	if msg, err := tx.AsMessage(types.NewEIP155Signer(chainID), nil); err == nil {
-	// 		fmt.Println(msg.From().Hex()) // 0x0fD081e3Bb178dc45c0cb23202069ddA57064258
-	// 	}
-
-	// }
 }
