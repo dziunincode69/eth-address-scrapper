@@ -23,7 +23,6 @@ var listSell string
 func main() {
 	utils.InitializeVipers()
 	client.ConnectClient(viper.GetString("WebSocket"))
-	utils.CheckWhitelistAddr("0xuniswapppppppppppppp")
 	fmt.Print("From Block: ")
 	fmt.Scanln(&fromBlock)
 	if !viper.GetBool("ScrapToLatest") {
