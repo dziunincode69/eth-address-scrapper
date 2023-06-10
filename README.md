@@ -1,2 +1,24 @@
-# insider-scrapper-eth
-# insider-scrapper-eth
+
+# Insider Scrapper ERC
+
+Scrap a most profited address from trading on shitcoin
+ERC
+
+
+List supported
+
+Buy
+* 0xfb3bdb41
+* 0x5ae401dc
+* 0x42712a67
+* 0x5ae401dc
+
+Sell: 
+* 0x791ac947
+* 0x18cbafe5
+* 0x3593564c
+* 0x5ae401dc
+
+
+
+
