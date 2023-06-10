@@ -5,7 +5,7 @@ Scrap a most profited address from trading on shitcoin
 ERC
 
 
-List supported
+List supported methode
 
 Buy
 * 0xfb3bdb41
